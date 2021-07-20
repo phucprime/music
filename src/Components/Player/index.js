@@ -5,7 +5,7 @@ import {
   Platform,
   Text,
   Image,
-  Pressable
+  Pressable,
 } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Header from './Header';
@@ -61,7 +61,7 @@ const Player = ({
   };
 
   const setTime = (data) => {
-    setCurrentPosition(data.positionMillis)
+    data.positionMillis && setCurrentPosition(data.positionMillis)
   };
 
   const seek = (seekTime) => {
@@ -128,8 +128,8 @@ const Player = ({
     pad(Math.floor((position / 1000) / 60), 2),
     pad(((position / 1000) % 60).toFixed(0), 2)
   ];
-  const elapsed = minutesAndSeconds(currentPosition);
-  const duration = minutesAndSeconds(totalLength);
+  const elapsed = minutesAndSeconds(currentPosition ? currentPosition : 0);
+  const duration = minutesAndSeconds(totalLength ? totalLength : 0);
   const statusBarHeight = getStatusBarHeight();
   const paddingMargin =
     Platform.OS === 'android'
@@ -142,10 +142,8 @@ const Player = ({
     setPaused(isPlaying);
     if (isPlaying) {
       setShouldPlay(false);
-      Platform.OS === 'android' && setPlayerState('full');
     }  else {
       setShouldPlay(true);
-      Platform.OS === 'android' && setPlayerState('full');
     } 
   }
 
@@ -186,7 +184,11 @@ const Player = ({
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Image
+                <TouchableOpacity
+                  onPress={()=>setPlayerState('full')}
+                >
+
+                <Image
                 style={{
                   height: 60,
                   width: 60,
@@ -197,12 +199,13 @@ const Player = ({
                 source={{uri: track.ART_URL}}
                 resizeMode={'stretch'}
               />
+                </TouchableOpacity>
+              
             </View>
             <View style={{flex: 0.35}}>
               <Text style={{fontSize: 14}}>{track.NAME}</Text>
               <Text style={{fontSize: 12}}>{track.ARTIST}</Text>
-              {elapsed && elapsed.length > 0 &&
-              duration && duration.length > 0 ? (
+              {elapsed  && duration  ? (
                 <Text>{`${elapsed[0]}:${elapsed[1]} - ${duration[0]}:${duration[1]}`}</Text>
               ) : (
                 <Text>00:00 - 00:00</Text>
@@ -271,39 +274,6 @@ const Player = ({
             </View>
           </View>
         </Pressable>
-        
-      //   <Modal transparent={true} animationType={'slide'} visible={show}>
-      //   <View
-      //     style={{
-      //       flex: 1,
-      //       backgroundColor: 'rgb(4,4,4)',
-      //       paddingTop: paddingMargin,
-      //     }}>
-      //     <Header
-      //       onDownPress={() => setPlayerState('mini')}
-      //       message="Playing From Charts"
-      //     />
-      //     <AlbumArt url={track.ART_URL} />
-      //     <TrackDetails title={track.NAME} artist={track.ARTIST} />
-      //     <SeekBar
-      //       onSeek={seek}
-      //       trackLength={totalLength}
-      //       onSlidingStart={() => setPaused(true)}
-      //       currentPosition={currentPosition}
-      //     />
-      //     <Controls
-      //       onPressRepeat={() => setRepeatOn(!repeatOn)}
-      //       repeatOn={repeatOn}
-      //       shuffleOn={shuffleOn}
-      //       onPressShuffle={() => setShuffleOn(!shuffleOn)}
-      //       onPressPlay={() => setPaused(false)}
-      //       onPressPause={() => setPaused(true)}
-      //       onBack={onBack}
-      //       onForward={onForward}
-      //       paused={paused}
-      //     />
-      //   </View>
-      // </Modal>
       ) : (
         <Modal transparent={true} animationType={'slide'} visible={show}>
           <View
@@ -312,29 +282,29 @@ const Player = ({
               backgroundColor: 'rgb(4,4,4)',
               paddingTop: paddingMargin,
             }}>
-            <Header
-              onDownPress={() => setPlayerState('mini')}
-              message="Playing From Charts"
-            />
-            <AlbumArt url={track.ART_URL} />
-            <TrackDetails title={track.NAME} artist={track.ARTIST} />
-            <SeekBar
-              onSeek={seek}
-              trackLength={totalLength}
-              onSlidingStart={() => setPaused(true)}
-              currentPosition={currentPosition}
-            />
-            <Controls
-              onPressRepeat={() => setRepeatOn(!repeatOn)}
-              repeatOn={repeatOn}
-              shuffleOn={shuffleOn}
-              onPressShuffle={() => setShuffleOn(!shuffleOn)}
-              onPressPlay={() => shouldPlayerPauseOrPlay(false)}
-              onPressPause={() => shouldPlayerPauseOrPlay(true)}
-              onBack={onBack}
-              onForward={onForward}
-              paused={paused}
-            />
+              <Header
+                onDownPress={() => setPlayerState('mini')}
+                message="Playing From Charts"
+              />
+              <AlbumArt url={track.ART_URL} />
+              <TrackDetails title={track.NAME} artist={track.ARTIST} />
+              <SeekBar
+                onSeek={seek}
+                trackLength={totalLength}
+                onSlidingStart={() => setPaused(true)}
+                currentPosition={currentPosition}
+              />
+              <Controls
+                onPressRepeat={() => setRepeatOn(!repeatOn)}
+                repeatOn={repeatOn}
+                shuffleOn={shuffleOn}
+                onPressShuffle={() => setShuffleOn(!shuffleOn)}
+                onPressPlay={() => shouldPlayerPauseOrPlay(false)}
+                onPressPause={() => shouldPlayerPauseOrPlay(true)}
+                onBack={onBack}
+                onForward={onForward}
+                paused={paused}
+              />
           </View>
         </Modal>
       )}
