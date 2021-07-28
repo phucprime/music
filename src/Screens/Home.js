@@ -11,10 +11,14 @@ import {
   TouchableOpacity,
   SafeAreaView
 } from 'react-native';
-import ImageHeaderScrollView, {
+
+import ImageHeaderScrollView, 
+{
   TriggeringView,
 } from 'react-native-image-header-scroll-view';
+
 import * as Animatable from 'react-native-animatable';
+
 import {
   albums,
   categories,
@@ -23,6 +27,7 @@ import {
   artists,
   popularChannels,
 } from '../Services/data';
+
 import AlbumView from '../Components/AlbumView';
 import CategoryView from '../Components/CategoryView';
 import RecentPlayedView from '../Components/RecentPlayedView';
@@ -31,11 +36,13 @@ import ArtistView from '../Components/ArtistView';
 import PopularChannelView from '../Components/PopularChannelView';
 
 import {connect} from 'react-redux';
+
 import {
   setPlayerState,
   setSelectedSong,
   getSongs,
 } from '../Services/redux/action';
+
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const statusBarHeight = getStatusBarHeight();

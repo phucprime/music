@@ -6,8 +6,9 @@ import {
   Text,
   Image,
   Pressable,
+  TouchableOpacity
 } from 'react-native';
-import { TouchableOpacity } from "react-native-gesture-handler";
+//import { TouchableOpacity } from "react-native-gesture-handler";
 import Header from './Header';
 import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';

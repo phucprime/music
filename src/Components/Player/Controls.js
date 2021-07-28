@@ -24,13 +24,16 @@ const Controls = ({
       <Image source={require('./icons/ic_skip_previous_white_36pt.png')} />
     </TouchableOpacity>
     <View style={{width: 20}} />
-    {!paused ? (
+    {!paused 
+    ? (
       <TouchableOpacity onPress={onPressPause}>
         <View style={styles.playButton}>
           <Image source={require('./icons/ic_pause_white_48pt.png')} />
         </View>
       </TouchableOpacity>
-    ) : (
+    ) 
+    : 
+    (
       <TouchableOpacity onPress={onPressPlay}>
         <View style={styles.playButton}>
           <Image source={require('./icons/ic_play_arrow_white_48pt.png')} />

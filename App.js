@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import Home from './src/Screens/Home';
 import Songs from './src/Screens/Songs';
 import Player from './src/Components/Player/index';
@@ -24,7 +23,6 @@ function App() {
             name="Home"
             component={Home}
             options={({route}) => ({
-              // eslint-disable-next-line react/display-name
               headerLeft: () => (
                 <TouchableOpacity onPress={() => alert('Menu')}>
                   <Image
@@ -38,7 +36,6 @@ function App() {
                   />
                 </TouchableOpacity>
               ),
-              // eslint-disable-next-line react/display-name
               headerRight: () => (
                 <TouchableOpacity onPress={() => alert('Search')}>
                   <Image
@@ -66,7 +63,6 @@ function App() {
             name="Songs"
             component={Songs}
             options={({route, navigation}) => ({
-              // eslint-disable-next-line react/display-name
               headerLeft: () => (
                 <TouchableOpacity onPress={() => navigation.pop()}>
                   <Image
@@ -80,7 +76,6 @@ function App() {
                   />
                 </TouchableOpacity>
               ),
-              // eslint-disable-next-line react/display-name
               headerRight: () => (
                 <TouchableOpacity onPress={() => alert('Search')}>
                   <Image

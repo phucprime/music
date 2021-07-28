@@ -11,19 +11,24 @@ import {
   TouchableOpacity,
   SafeAreaView
 } from 'react-native';
-import ImageHeaderScrollView, {
+
+import ImageHeaderScrollView, 
+{
   TriggeringView,
 } from 'react-native-image-header-scroll-view';
+
 import * as Animatable from 'react-native-animatable';
 import SongView from '../Components/SongView';
 
 import {connect} from 'react-redux';
+
 import {
   setPlayerState,
   setSelectedSong,
   getSongs,
   shuffleSongs,
 } from '../Services/redux/action';
+
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const statusBarHeight = getStatusBarHeight();
@@ -37,7 +42,6 @@ const topMargin =
 const MIN_HEIGHT = Platform.OS === 'ios' ? 55 + topMargin : 55;
 const MAX_HEIGHT = 350;
 
-// eslint-disable-next-line no-unused-vars
 const Songs = ({
   navigation,
   selectedSong,
