@@ -42,15 +42,8 @@ const topMargin =
 const MIN_HEIGHT = Platform.OS === 'ios' ? 55 + topMargin : 55;
 const MAX_HEIGHT = 350;
 
-const Songs = ({
-  navigation,
-  selectedSong,
-  setPlayerState,
-  setSelectedSong,
-  songs,
-  playerState,
-  shuffleSongs,
-}) => {
+const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, songs, playerState, shuffleSongs }) => {
+
   const navTitleView = useRef(null);
   const shuffleAll = () => {
     if (shuffleSongs) {
@@ -63,8 +56,9 @@ const Songs = ({
       style={{
         ...styles.container,
         marginBottom: playerState && playerState === 'mini' ? 100 : null,
-      }}>
-        <StatusBar backgroundColor="darkgray"/>
+      }}
+    >
+      <StatusBar backgroundColor="darkgray"/>
       <ImageHeaderScrollView
         showsVerticalScrollIndicator={false}
         maxHeight={MAX_HEIGHT}
@@ -85,14 +79,16 @@ const Songs = ({
               marginHorizontal: 10,
               alignItems: 'center',
               justifyContent: 'space-between',
-            }}>
+            }}
+          >
             <View
               style={{
                 flex: 0.2,
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'row',
-              }}>
+              }}
+            >
               <Text style={styles.imageTitle}>Top Charts</Text>
             </View>
             <View
@@ -100,10 +96,12 @@ const Songs = ({
                 flex: 0.2,
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
+              }}
+            >
               <Text
                 numberOfLines={3}
-                style={{...styles.imageTitle, fontSize: 17}}>
+                style={{...styles.imageTitle, fontSize: 17}}
+              >
                 Here you go with fresh beats of this month
               </Text>
             </View>
@@ -143,7 +141,8 @@ const Songs = ({
               justifyContent: 'space-between',
               flexDirection: 'row',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <TouchableOpacity
               style={{
                 backgroundColor: '#353c46',
@@ -160,7 +159,8 @@ const Songs = ({
                   setSelectedSong(songs[0]);
                   setPlayerState('mini');
                 }
-              }}>
+              }}
+            >
               <Text style={{color: '#b7b7b7', fontWeight: '600', fontSize: 13}}>
                 Play All
               </Text>
@@ -227,12 +227,8 @@ const mapStateToProps = (state) => {
     playerState: state.playerState,
   };
 };
-export default connect(mapStateToProps, {
-  getSongs,
-  setPlayerState,
-  setSelectedSong,
-  shuffleSongs,
-})(Songs);
+
+export default connect(mapStateToProps, { getSongs, setPlayerState, setSelectedSong, shuffleSongs }) (Songs);
 
 const styles = StyleSheet.create({
   container: {

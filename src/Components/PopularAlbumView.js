@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 const PopularAlbumView = ({item, navigation}) => {
+  
   const onPress = () => {
     navigation.navigate('Songs');
   };

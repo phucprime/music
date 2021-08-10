@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 const TrackDetails = ({title, artist, onTitlePress, onArtistPress}) => (
+
   <View style={styles.container}>
     <View style={styles.detailsWrapper}>
       <Text style={styles.title} onPress={onTitlePress}>
@@ -16,6 +17,7 @@ const TrackDetails = ({title, artist, onTitlePress, onArtistPress}) => (
       </Text>
     </View>
   </View>
+  
 );
 
 export default TrackDetails;

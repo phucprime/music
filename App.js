@@ -1,16 +1,21 @@
 import * as React from 'react';
-import {Image, TouchableOpacity} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { Image, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/Screens/Home';
 import Songs from './src/Screens/Songs';
 import Player from './src/Components/Player/index';
 import reducers from './src/Services/redux/reducers';
-import {applyMiddleware, createStore} from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const store = createStore(
+  reducers, 
+  {}, 
+  applyMiddleware(ReduxThunk)
+);
+
 const Stack = createStackNavigator();
 
 function App() {
@@ -106,4 +111,3 @@ function App() {
 }
 
 export default App;
-console.disableYellowBox = true;

@@ -12,11 +12,7 @@ import {
   SafeAreaView
 } from 'react-native';
 
-import ImageHeaderScrollView, 
-{
-  TriggeringView,
-} from 'react-native-image-header-scroll-view';
-
+import ImageHeaderScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
 import * as Animatable from 'react-native-animatable';
 
 import {
@@ -34,7 +30,6 @@ import RecentPlayedView from '../Components/RecentPlayedView';
 import PopularAlbumView from '../Components/PopularAlbumView';
 import ArtistView from '../Components/ArtistView';
 import PopularChannelView from '../Components/PopularChannelView';
-
 import {connect} from 'react-redux';
 
 import {
@@ -56,8 +51,8 @@ const topMargin =
 const MIN_HEIGHT = Platform.OS === 'ios' ? 55 + topMargin : 55;
 const MAX_HEIGHT = 350;
 
-// eslint-disable-next-line no-unused-vars
 const Home = ({navigation, playerState, getSongs}) => {
+
   useEffect(() => {
     navigation.setParams({isHeaderImageHidden: false});
     (async () => {
@@ -71,7 +66,7 @@ const Home = ({navigation, playerState, getSongs}) => {
     <SafeAreaView
       style={{
         ...styles.container,
-        marginBottom: playerState && playerState === 'mini' ? 100 : null,
+        marginBottom: playerState && playerState === 'mini' ? 100 : null
       }}>
         <StatusBar backgroundColor="darkgray"/>
       <ImageHeaderScrollView
@@ -93,14 +88,16 @@ const Home = ({navigation, playerState, getSongs}) => {
               marginVertical: 46,
               alignItems: 'center',
               justifyContent: 'space-between',
-            }}>
+            }}
+          >
             <View
               style={{
                 flex: 0.2,
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'row',
-              }}>
+              }}
+            >
               <Image
                 source={require('../../assets/icons/applogo_white.png')}
                 style={{height: 35, width: 35, marginRight: 5}}
@@ -113,9 +110,9 @@ const Home = ({navigation, playerState, getSongs}) => {
                 flex: 0.2,
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
-              <Text
-                style={{...styles.imageTitle, fontSize: 29, marginBottom: 5}}>
+              }}
+            >
+              <Text style={{...styles.imageTitle, fontSize: 29, marginBottom: 5}}>
                 All New Baduga
               </Text>
               <Text style={{...styles.imageTitle, fontSize: 29}}>
@@ -224,14 +221,16 @@ const Home = ({navigation, playerState, getSongs}) => {
               borderWidth: 1,
               borderRadius: 25,
               borderColor: '#f18933',
-            }}>
+            }}
+          >
             <Text
               style={{
                 fontSize: 16,
                 fontWeight: 'bold',
                 color: '#f18933',
                 padding: 10,
-              }}>
+              }}
+            >
               Show More
             </Text>
           </TouchableOpacity>
@@ -244,7 +243,8 @@ const Home = ({navigation, playerState, getSongs}) => {
               justifyContent: 'space-between',
               flexDirection: 'row',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Text style={{fontSize: 16, fontWeight: 'bold'}}>
               Popular Albums
             </Text>
@@ -269,7 +269,8 @@ const Home = ({navigation, playerState, getSongs}) => {
               justifyContent: 'space-between',
               flexDirection: 'row',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Text style={{fontSize: 16, fontWeight: 'bold'}}>Artists</Text>
           </View>
         </View>
@@ -290,7 +291,8 @@ const Home = ({navigation, playerState, getSongs}) => {
               justifyContent: 'space-between',
               flexDirection: 'row',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Text style={{fontSize: 16, fontWeight: 'bold'}}>
               Popular Channels
             </Text>
@@ -320,11 +322,8 @@ const mapStateToProps = (state) => {
     playerState: state.playerState,
   };
 };
-export default connect(mapStateToProps, {
-  getSongs,
-  setPlayerState,
-  setSelectedSong,
-})(Home);
+
+export default connect(mapStateToProps, { getSongs, setPlayerState, setSelectedSong }) (Home);
 
 const styles = StyleSheet.create({
   container: {

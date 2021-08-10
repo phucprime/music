@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 const AlbumView = ({item}) => {
+  
   const onPress = () => {
     alert('List Item Pressed');
   };
