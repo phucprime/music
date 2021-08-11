@@ -1,37 +1,37 @@
 export const albums = [
   {
     ID: 1,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 2,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 3,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 4,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 5,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 6,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
   {
     ID: 7,
-    NAME: 'Enna Usare',
+    NAME: 'Comet Comic',
     IMAGE: require('../../assets/images/album_image.png'),
   },
 ];
