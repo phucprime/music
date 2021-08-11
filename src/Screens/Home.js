@@ -74,11 +74,12 @@ const Home = ({navigation, playerState, getSongs}) => {
         maxHeight={MAX_HEIGHT}
         minHeight={MIN_HEIGHT}
         maxOverlayOpacity={0.6}
-        minOverlayOpacity={0.3}
+        minOverlayOpacity={0.15}
         renderHeader={() => (
           <Image
             source={require('../../assets/images/album_header.png')}
             style={styles.image}
+            resizeMode='stretch'
           />
         )}
         renderForeground={() => (
@@ -103,7 +104,7 @@ const Home = ({navigation, playerState, getSongs}) => {
                 style={{height: 35, width: 35, marginRight: 5}}
                 resizeMode={'stretch'}
               />
-              <Text style={styles.imageTitle}>Battu</Text>
+              <Text style={styles.imageTitle}>Music</Text>
             </View>
             <View
               style={{
@@ -113,7 +114,7 @@ const Home = ({navigation, playerState, getSongs}) => {
               }}
             >
               <Text style={{...styles.imageTitle, fontSize: 29, marginBottom: 5}}>
-                All New Baduga
+                All New Songs
               </Text>
               <Text style={{...styles.imageTitle, fontSize: 29}}>
                 Music App
