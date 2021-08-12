@@ -9,7 +9,7 @@ import {
 const PopularAlbumView = ({item, navigation}) => {
   
   const onPress = () => {
-    navigation.navigate('Songs');
+    navigation.navigate('Songs', { title: item.NAME, image: item.IMAGE });
   };
 
   const renderView = () => (
