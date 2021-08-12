@@ -42,9 +42,10 @@ const topMargin =
 const MIN_HEIGHT = Platform.OS === 'ios' ? 55 + topMargin : 55;
 const MAX_HEIGHT = 350;
 
-const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, songs, playerState, shuffleSongs }) => {
+const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, songs, playerState, shuffleSongs, route }) => {
 
   const navTitleView = useRef(null);
+  const { title, image } = route.params;
   const shuffleAll = () => {
     if (shuffleSongs) {
       shuffleSongs();
@@ -64,10 +65,11 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
         maxHeight={MAX_HEIGHT}
         minHeight={MIN_HEIGHT}
         maxOverlayOpacity={0.6}
-        minOverlayOpacity={0.3}
+        minOverlayOpacity={0.25}
         renderHeader={() => (
           <Image
-            source={require('../../assets/images/songs_header.png')}
+            // source={require('../../assets/images/songs_header.png')}
+            source={image}
             style={styles.image}
           />
         )}
@@ -83,13 +85,13 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
           >
             <View
               style={{
-                flex: 0.2,
+                flex: 0.6,
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'row',
               }}
             >
-              <Text style={styles.imageTitle}>Top Charts</Text>
+              <Text style={styles.imageTitle}>{title}</Text>
             </View>
             <View
               style={{
@@ -119,7 +121,8 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
               {'Top Charts'}
             </Text>
           </Animatable.View>
-        )}>
+        )}
+      >
         <TriggeringView
           onBeginHidden={() => {
             navigation.setParams({isHeaderImageHidden: true});
