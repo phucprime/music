@@ -65,7 +65,7 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
         maxHeight={MAX_HEIGHT}
         minHeight={MIN_HEIGHT}
         maxOverlayOpacity={0.6}
-        minOverlayOpacity={0.25}
+        minOverlayOpacity={0.15}
         renderHeader={() => (
           <Image
             // source={require('../../assets/images/songs_header.png')}
@@ -85,7 +85,6 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
           >
             <View
               style={{
-                flex: 0.6,
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'row',
@@ -95,7 +94,6 @@ const Songs = ({ navigation, selectedSong, setPlayerState, setSelectedSong, song
             </View>
             <View
               style={{
-                flex: 0.2,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
