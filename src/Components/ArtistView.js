@@ -14,7 +14,7 @@ const ArtistView = ({item}) => {
   const renderView = () => (
     <View style={{marginRight: 10}}>
       <Image
-        style={{width: 147, height: 170}}
+        style={{ width: 150, height: 150 }}
         resizeMode={'stretch'}
         source={item.IMAGE}
       />
