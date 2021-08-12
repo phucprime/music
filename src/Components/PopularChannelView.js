@@ -13,7 +13,7 @@ const PopularChannelView = ({item}) => {
   const renderView = () => (
     <View style={{marginRight: 10}}>
       <Image
-        style={{width: 96, height: 96}}
+        style={{width: 96, height: 96, overflow: 'hidden', borderRadius: 150 }}
         resizeMode={'stretch'}
         source={item.IMAGE}
       />
