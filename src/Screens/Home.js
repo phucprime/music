@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -60,6 +60,8 @@ const Home = ({navigation, playerState, getSongs}) => {
     })();
   }, []);
 
+  const [isExpandRecentPlayed, setIsExpandRecentPlayed] = useState(false);
+
   const navTitleView = useRef(null);
 
   return (
@@ -67,8 +69,9 @@ const Home = ({navigation, playerState, getSongs}) => {
       style={{
         ...styles.container,
         marginBottom: playerState && playerState === 'mini' ? 100 : null
-      }}>
-        <StatusBar backgroundColor="darkgray"/>
+      }}
+    >
+      <StatusBar backgroundColor="darkgray"/>
       <ImageHeaderScrollView
         showsVerticalScrollIndicator={false}
         maxHeight={MAX_HEIGHT}
@@ -130,7 +133,8 @@ const Home = ({navigation, playerState, getSongs}) => {
               resizeMode={'stretch'}
             />
           </Animatable.View>
-        )}>
+        )}
+      >
         <TriggeringView
           onBeginHidden={() => {
             navigation.setParams({isHeaderImageHidden: true});
@@ -143,6 +147,7 @@ const Home = ({navigation, playerState, getSongs}) => {
             StatusBar.setBarStyle('light-content');
           }}
         />
+
         {/* Albums */}
         <View style={{paddingHorizontal: 15, marginTop: 20}}>
           <View
@@ -167,6 +172,7 @@ const Home = ({navigation, playerState, getSongs}) => {
           horizontal
           showsHorizontalScrollIndicator={false}
         />
+
         {/* Categories */}
         <View style={{paddingHorizontal: 15, marginTop: 20}}>
           <View
@@ -191,6 +197,7 @@ const Home = ({navigation, playerState, getSongs}) => {
           horizontal
           showsHorizontalScrollIndicator={false}
         />
+
         {/* Recently Played */}
         <View style={{paddingHorizontal: 15}}>
           <View
@@ -208,7 +215,7 @@ const Home = ({navigation, playerState, getSongs}) => {
         <FlatList
           style={{paddingHorizontal: 15, marginVertical: 10}}
           keyboardShouldPersistTaps="always"
-          data={recentlyPlayed.slice(0, 4)}
+          data={isExpandRecentPlayed ? recentlyPlayed : recentlyPlayed.slice(0, 3)}
           keyExtractor={(item) => item.ID}
           renderItem={RecentPlayedView}
           showsVerticalScrollIndicator={false}
@@ -223,6 +230,7 @@ const Home = ({navigation, playerState, getSongs}) => {
               borderRadius: 25,
               borderColor: '#f18933',
             }}
+            onPress={() => setIsExpandRecentPlayed(!isExpandRecentPlayed)}
           >
             <Text
               style={{
@@ -232,7 +240,7 @@ const Home = ({navigation, playerState, getSongs}) => {
                 padding: 10,
               }}
             >
-              Show More
+              {isExpandRecentPlayed ? 'See Less' : 'Show More'}
             </Text>
           </TouchableOpacity>
         </View>
