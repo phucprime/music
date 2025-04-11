@@ -28,7 +28,7 @@
     "react-native-status-bar-height": "^2.6.0",
     "react-native-video": "^5.1.1",
     "react-native-view-pdf": "^0.11.0",
-    "react-native-web": "~0.13.12",
+    "react-native-web": "~0.19.10",
     "react-redux": "^7.2.4",
     "react-thunk": "^1.0.0",
     "redux": "^4.1.0",
