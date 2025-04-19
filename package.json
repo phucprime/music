@@ -23,7 +23,7 @@
     "react-native-image-crop-picker": "^0.36.2",
     "react-native-image-header-scroll-view": "^0.10.3",
     "react-native-reanimated": "~2.2.0",
-    "react-native-safe-area-context": "3.2.0",
+    "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~3.4.0",
     "react-native-status-bar-height": "^2.6.0",
     "react-native-video": "^5.1.1",
