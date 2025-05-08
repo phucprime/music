@@ -34,7 +34,7 @@
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
     "expo-splash-screen": "~0.28.0",
-    "expo-updates": "~0.26.0",
+    "expo-updates": "~0.28.12",
     "react-native-unimodules": "~0.14.5"
   },
   "devDependencies": {
